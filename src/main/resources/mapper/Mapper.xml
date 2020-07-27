@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zmk.mapper.BlogMapper">
+	<select id="selc" resultType="com.zmk.bean.Categ">
+		select *,(select count(b.bid) from blog b where b.cid =c.cid)
+		as bcount from categ c
+	</select>
+</mapper>
